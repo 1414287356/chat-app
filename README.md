@@ -1,24 +1,52 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ ## users テーブル
 
-Things you may want to cover:
+| Columu  | Type   | Options     |
+| ------- | ------ | ----------- |
+| name    | string | null: false |
+| email   | string | null: false |
+| password| string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+_ has_many :room_users
+_ has_many :rooms, through: rooms_users
+_ has_many :messages
 
-* Configuration
+## rooms テーブル
 
-* Database creation
+| Columu  | Type   | Options     |
+| ------- | ------ | ----------- |
+| name    | string | null: false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+_ has_many :room_users
+_ has_many :rooms, through: rooms_users
+_ has_many :messages
 
-* Services (job queues, cache servers, search engines, etc.)
+## room_users テーブル
 
-* Deployment instructions
+| Columu  | Type      | Options                        |
+| ------- | --------- | ------------------------------ |
+| user    | refrences | null: false, foreign_key: true |
+| room    | refrences | null: false, foreign_key: true |
 
-* ...
+### Association
+
+_ belongs_to :room
+_ belongs_to :user
+
+## messages テーブル
+
+| Columu  | Type      | Options                        |
+| ------- | --------- | ------------------------------ |
+| content | string    |                                |
+| user    | refrences | null: false, foreign_key: true |
+| room    | refrences | null: false, foreign_key: true |
+
+### Association
+
+_ belongs_to :room
+_ belongs_to :user
