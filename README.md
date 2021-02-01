@@ -28,10 +28,10 @@ _ has_many :messages
 
 ## room_users テーブル
 
-| Columu  | Type      | Options                        |
-| ------- | --------- | ------------------------------ |
-| user    | refrences | null: false, foreign_key: true |
-| room    | refrences | null: false, foreign_key: true |
+| Columu  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -40,11 +40,11 @@ _ belongs_to :user
 
 ## messages テーブル
 
-| Columu  | Type      | Options                        |
-| ------- | --------- | ------------------------------ |
-| content | string    |                                |
-| user    | refrences | null: false, foreign_key: true |
-| room    | refrences | null: false, foreign_key: true |
+| Columu  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
 
 ### Association
 
